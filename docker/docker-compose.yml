@@ -40,8 +40,7 @@ services:
     image: ${OAP_IMAGE}
     container_name: oap
     depends_on:
-      elasticsearch:
-        condition: service_healthy
+      - elasticsearch
     links:
       - elasticsearch
     ports:
@@ -64,8 +63,7 @@ services:
     image: ${UI_IMAGE}
     container_name: ui
     depends_on:
-      oap:
-        condition: service_healthy
+      - oap
     links:
       - oap
     ports:
